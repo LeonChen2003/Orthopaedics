@@ -2,7 +2,7 @@ dataSources:
   ds_0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    jdbcUrl: jdbc:mysql://192.168.174.128:3306/link?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    jdbcUrl: jdbc:mysql://192.168.174.128:3306/orthopaedics?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai
     username: root
     password: root
 
@@ -17,11 +17,23 @@ rules:
           mail:
             cipherColumn: mail
             encryptorName: common_encryptor
+          password:
+            cipherColumn: password
+            encryptorName: common_encryptor
+          real_name:
+            cipherColumn: real_name
+            encryptorName: common_encryptor
+        queryWithCipherColumn: true
+      t_surgeon_related:
+        columns:
+          identity_card:
+            cipherColumn: identity_card
+            encryptorName: common_encryptor
         queryWithCipherColumn: true
     encryptors:
       common_encryptor:
         type: AES
         props:
-          aes-key-value: d6oadClrrb9A3GWo
+          aes-key-value: d6oadClr9A3GWo
 props:
   sql-show: true

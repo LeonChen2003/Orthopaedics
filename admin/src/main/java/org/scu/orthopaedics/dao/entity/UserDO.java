@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.scu.orthopaedics.common.database.BaseDO;
 
+/**
+ * 普通用户实体
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
