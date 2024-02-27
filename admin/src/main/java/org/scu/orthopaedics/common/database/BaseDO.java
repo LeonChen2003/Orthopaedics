@@ -1,4 +1,4 @@
-package org.scu.orthopaedics.common;
+package org.scu.orthopaedics.common.database;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
