@@ -1,0 +1,8 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: orthopaedics-admin
+  datasource:
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    url: jdbc:shardingsphere:classpath:shardingsphere-config-${database.env:dev}.yaml
