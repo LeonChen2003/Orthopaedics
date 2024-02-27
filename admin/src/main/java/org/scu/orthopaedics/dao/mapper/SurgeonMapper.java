@@ -1,4 +1,4 @@
-package org.scu.orthopaedics.mapper;
+package org.scu.orthopaedics.dao.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

@@ -6,3 +6,7 @@ spring:
   datasource:
     driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
     url: jdbc:shardingsphere:classpath:shardingsphere-config-${database.env:dev}.yaml
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
