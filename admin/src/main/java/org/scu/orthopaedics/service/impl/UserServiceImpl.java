@@ -1,6 +1,8 @@
 package org.scu.orthopaedics.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.scu.orthopaedics.dao.entity.UserDO;
@@ -17,5 +19,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
     @Override
     public void register(UserRegisterReqDTO userRegisterReqDTO) {
         baseMapper.insert(BeanUtil.copyProperties(userRegisterReqDTO, UserDO.class));
+    }
+
+    @Override
+    public void delete(String username) {
+        LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername, username);
+        baseMapper.delete(queryWrapper);
     }
 }

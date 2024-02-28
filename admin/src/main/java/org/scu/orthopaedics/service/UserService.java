@@ -10,4 +10,10 @@ public interface UserService extends IService<UserDO> {
      * @param userRegisterReqDTO 用户注册请求参数
      */
     void register(UserRegisterReqDTO userRegisterReqDTO);
+
+    /**
+     * 用户删除
+     * @param username 用户删除请求参数
+     */
+    void delete(String username);
 }

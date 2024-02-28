@@ -11,4 +11,10 @@ public interface SurgeonService extends IService<SurgeonRelatedDO> {
      * @param requestParam 医生注册相关参数
      */
     void surgeonRegister(SurgeonRegisterReqDTO requestParam);
+
+    /**
+     *医生删除
+     * @param username 医生用户名
+     */
+    void delete(String username);
 }

@@ -1,6 +1,8 @@
 package org.scu.orthopaedics.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.scu.orthopaedics.dao.entity.SurgeonRelatedDO;
@@ -26,5 +28,14 @@ public class SurgeonServiceImpl extends ServiceImpl<SurgeonMapper, SurgeonRelate
         userMapper.insert(userDO);
         SurgeonRelatedDO surgeonRelatedDO = BeanUtil.copyProperties(requestParam, SurgeonRelatedDO.class);
         surgeonMapper.insert(surgeonRelatedDO);
+    }
+
+    @Override
+    @Transactional
+    public void delete(String username) {
+        LambdaQueryWrapper<SurgeonRelatedDO> queryWrapper = Wrappers.lambdaQuery(SurgeonRelatedDO.class).eq(SurgeonRelatedDO::getUsername, username);
+        surgeonMapper.delete(queryWrapper);
+        LambdaQueryWrapper<UserDO> queryWrapper1 = Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername, username);
+        userMapper.delete(queryWrapper1);
     }
 }
