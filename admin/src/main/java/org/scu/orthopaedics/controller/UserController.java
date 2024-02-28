@@ -3,6 +3,7 @@ package org.scu.orthopaedics.controller;
 import lombok.RequiredArgsConstructor;
 import org.scu.orthopaedics.common.result.Result;
 import org.scu.orthopaedics.common.result.Results;
+import org.scu.orthopaedics.dto.req.UserLoginReqDTO;
 import org.scu.orthopaedics.dto.req.UserRegisterReqDTO;
 import org.scu.orthopaedics.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,15 @@ public class UserController {
     }
 
     /**
+     *用户登录
+     */
+    @PostMapping("/login")
+    public Result<Void> login(@RequestBody UserLoginReqDTO userLoginReqDTO){
+        userService.login(userLoginReqDTO);
+        return Results.success();
+    }
+
+    /**
      *用户删除
      */
     @GetMapping("/delete")
@@ -36,4 +46,5 @@ public class UserController {
         userService.delete(username);
         return Results.success();
     }
+
 }

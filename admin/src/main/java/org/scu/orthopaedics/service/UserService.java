@@ -2,6 +2,7 @@ package org.scu.orthopaedics.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.scu.orthopaedics.dao.entity.UserDO;
+import org.scu.orthopaedics.dto.req.UserLoginReqDTO;
 import org.scu.orthopaedics.dto.req.UserRegisterReqDTO;
 
 public interface UserService extends IService<UserDO> {
@@ -16,4 +17,6 @@ public interface UserService extends IService<UserDO> {
      * @param username 用户删除请求参数
      */
     void delete(String username);
+
+    void login(UserLoginReqDTO userLoginReqDTO);
 }

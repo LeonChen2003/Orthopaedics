@@ -26,6 +26,9 @@ public class SurgeonController {
         return Results.success();
     }
 
+    /**
+     * 医生删除
+     */
     @GetMapping("/delete")
     public Result<Void> surgeonDelete(@RequestParam String username){
         surgeonService.delete(username);
