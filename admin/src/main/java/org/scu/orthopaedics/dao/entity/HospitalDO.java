@@ -6,24 +6,20 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.scu.orthopaedics.common.database.BaseDO;
 
 /**
- * 医生实体
+ * 医院实体
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "t_surgeon_related")
-public class SurgeonRelatedDO extends BaseDO {
+@TableName(value = "t_hospital")
+public class HospitalDO {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
-    private String username;
-    private String hospital;
-    private String workProvince;
-    private String workCity;
-    private String code;
-    private String certificationPicture;
-    private String identityCard;
+    private String hospitalName;
+    private Integer rank;
+    private String province;
+    private String city;
+    private String description;
 }

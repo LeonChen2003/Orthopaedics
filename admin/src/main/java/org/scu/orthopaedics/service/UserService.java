@@ -18,5 +18,9 @@ public interface UserService extends IService<UserDO> {
      */
     void delete(String username);
 
+    /**
+     * 用户登录
+     * @param userLoginReqDTO 用户登录相关参数
+     */
     void login(UserLoginReqDTO userLoginReqDTO);
 }

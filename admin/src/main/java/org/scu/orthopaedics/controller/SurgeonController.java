@@ -3,6 +3,7 @@ package org.scu.orthopaedics.controller;
 import lombok.RequiredArgsConstructor;
 import org.scu.orthopaedics.common.result.Result;
 import org.scu.orthopaedics.common.result.Results;
+import org.scu.orthopaedics.dto.req.SurgeonLoginReqDTO;
 import org.scu.orthopaedics.dto.req.SurgeonRegisterReqDTO;
 import org.scu.orthopaedics.service.SurgeonService;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,15 @@ public class SurgeonController {
     @PostMapping("/register")
     public Result<Void> surgeonRegister(@RequestBody SurgeonRegisterReqDTO requestParam){
         surgeonService.surgeonRegister(requestParam);
+        return Results.success();
+    }
+
+    /**
+     医生登录
+     */
+
+    public Result<Void> surgeonLogin(@RequestBody SurgeonLoginReqDTO surgeonLoginReqDTO){
+        surgeonService.login(surgeonLoginReqDTO);
         return Results.success();
     }
 

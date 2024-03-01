@@ -32,10 +32,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
 
     @Override
     public void login(UserLoginReqDTO userLoginReqDTO) {
-        LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername, userLoginReqDTO.getUsername()).eq(UserDO::getPassword, userLoginReqDTO.getPassword());
+        LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class).eq(UserDO::getUsername, userLoginReqDTO.getUsername()).eq(UserDO::getPassword, userLoginReqDTO.getPassword()).eq(UserDO::getDelFlag,0);
         UserDO userDO = baseMapper.selectOne(queryWrapper);
         if (userDO == null){
-            throw new ClientException("请输入正确账户密码");
+            throw new ClientException("账户不存在或账号密码错误，请重新输入");
         }
     }
 }
